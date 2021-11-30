@@ -1,6 +1,31 @@
 .container {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
+    padding: 0 2%;
+    height: 100%;
+    background: rgba(0, 0, 0, .75);
+}
+
+.mainImage{
+    height: 100%;
+}
+
+.myImg{
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    width: 250px;
+    border: 5px solid white;
+    float: left;
+    background-color: white;
+}
+
+.myImg img{
+    border-radius: 50%;
+}
+
+.mainContent {
+    padding: 20px;
+    width: 100%;
 }

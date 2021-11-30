@@ -5,7 +5,7 @@ import Nav from '../components/Nav';
 export const siteTitle = 'My App';
 export default function Layout({ children, home }) {
     return (
-        <div className="content">
+        <>
        <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta
@@ -24,6 +24,6 @@ export default function Layout({ children, home }) {
           <Nav />
           { children }
           <Footer />
-        </div>
+        </>
       );
 }

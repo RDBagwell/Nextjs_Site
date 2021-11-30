@@ -1,0 +1,42 @@
+.navbar {
+    background: white;
+    display: flex;
+    list-style: none;
+}
+
+
+.navbar a {
+    color: black;
+}
+
+.navbarNav{
+    list-style: none;
+    display: flex;
+}
+
+.navItem{
+    margin: 0 10px;
+}
+
+.dropdownMenu{
+    display: block;
+}
+
+
+.dropdownToggle:hover{
+    color: brown;
+}
+
+
+.collection {
+    position: relative;
+    overflow: hidden;
+}
+
+.collection:hover .overlay { 
+    position: absolute;
+    opacity: .3;
+    z-index: 9999;
+    color: black;
+}
+
