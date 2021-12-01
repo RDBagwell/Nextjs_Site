@@ -1,22 +1,22 @@
 export const MenuItems = [
     {
-      title: 'Marketing',
-      path: '/marketing',
+      title: 'Magic 8 Ball',
+      path: '/magic_eight_ball',
+      imageURL: ''
+    },
+    {
+      title: 'Rock Paper Scissors',
+      path: '/#',
+      imageURL: ''
+    },
+    {
+      title: 'Gallery',
+      path: '/#',
       cName: 'dropdown-link'
     },
     {
-      title: 'Consulting',
-      path: '/consulting',
-      cName: 'dropdown-link'
-    },
-    {
-      title: 'Design',
-      path: '/design',
-      cName: 'dropdown-link'
-    },
-    {
-      title: 'Development',
-      path: '/development',
-      cName: 'dropdown-link'
+      title: 'Collage Creator',
+      path: '/#',
+      imageURL: ''
     }
   ];

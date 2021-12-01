@@ -1,0 +1,15 @@
+.dropdownMenu {
+    position: absolute;
+    background: white;
+    padding: 3px 11px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    width: 200px;
+}
+
+.dropdownItem {
+    text-decoration: none;
+    margin: 5px 0;
+}
