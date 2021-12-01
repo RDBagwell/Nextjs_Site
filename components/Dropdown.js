@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import {MenuItems} from './MenuItems';
 import Link from 'next/link';
 import dropStyle from './dropdown.module.css';

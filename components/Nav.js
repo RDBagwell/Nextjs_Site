@@ -5,6 +5,21 @@ import Dropdown from './Dropdown';
 export default function Nav(){
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
+    const onMouseEnter = () => {
+        if (window.innerWidth < 960) {
+            setClick(false);
+        } else {
+            setClick(true);
+        }
+      };
+    
+      const onMouseLeave = () => {
+        if (window.innerWidth < 960) {
+            setClick(false);
+        } else {
+            setClick(false);
+        }
+      };
     return (
         <nav className={styles.navbar}>
             <div className={styles.navbarContainer}>
@@ -15,7 +30,7 @@ export default function Nav(){
                         </Link>
                     </li>
                     <li className={styles.navItem, styles.dropdown}>
-                        <a className="dropdownToggle" onClick={handleClick}>Demos and fun things {click ? <span>&#9650;</span> : <span>&#9660;</span>}</a>
+                        <a className="dropdownToggle" onClick={handleClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>Demos and fun things {click ? <span>&#9650;</span> : <span>&#9660;</span>}</a>
                         {click && <Dropdown />}
                     </li>
                 </ul>
