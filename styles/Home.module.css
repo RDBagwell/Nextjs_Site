@@ -51,10 +51,27 @@
     color: black;
     width: 99vw;
     padding: 0 30px;
+
 }
 
 .demoCardContainer{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
 }
+
+.PLF{
+    width: 99vw;
+    padding: 0 30px;
+}
+
+@media screen and (max-width: 400px) {
+    .greeting h1{
+        text-align: center;
+    }
+    
+    .myImg {
+        margin: 0 auto;
+        float: none;
+    }
+  }
