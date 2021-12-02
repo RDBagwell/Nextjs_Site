@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import {MenuItems} from '../components/MenuItems';
 import DemosCard from '../components/DemosCard';
 import styles from '../styles/Home.module.css';
 
@@ -29,7 +30,10 @@ export default function Home() {
       <div className={styles.demos}>
         <h2 className={styles.pageTiltle}>Demos &amp; Fun Things</h2>
         <div className={styles.demoCardContainer}>
-          <DemosCard />
+          {MenuItems.map((cardItem, id)=>(
+            <DemosCard key={id} cardItem={cardItem} />
+          ))}
+          
         </div>
       </div>
     </div>

@@ -2,21 +2,21 @@ export const MenuItems = [
     {
       title: 'Magic 8 Ball',
       path: '/magic_eight_ball',
-      imageURL: ''
+      imageURL: '/images/8-ball.png'
     },
     {
       title: 'Rock Paper Scissors',
       path: '/#',
-      imageURL: ''
+      imageURL: '/images/rock_paper_scissors.png'
     },
     {
       title: 'Gallery',
       path: '/#',
-      cName: 'dropdown-link'
+      imageURL: '/images/slideShowIcon.png'
     },
     {
       title: 'Collage Creator',
       path: '/#',
-      imageURL: ''
+      imageURL: '/images/images.png'
     }
   ];
