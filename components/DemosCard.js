@@ -1,5 +1,6 @@
 import Image from "next/dist/client/image";
 import Link from "next/dist/client/link";
+import cardStyle from 'cardStyle.css';
 export default function DemosCard(){
   return(
         <div className='cardContainer'>
