@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import {MenuItems} from './MenuItems';
 import Link from 'next/link';
 import dropStyle from './dropdown.module.css';
-export default function Dropdown() {
+export default function Dropdown({closeDropdown}) {
   return(
     <div className={dropStyle.dropdownMenu}>
       {MenuItems.map(({title, path}, index)=>(
         <Link key={index} href={path}>
-          <a className={dropStyle.dropdownItem} >{title}</a>
+          <a className={dropStyle.dropdownItem} onClick={()=>closeDropdown(false)} >{title}</a>
         </Link>
       ))}
     </div>

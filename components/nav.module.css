@@ -3,12 +3,22 @@
     display: flex;
     list-style: none;
     color: black;
+    width: 100%;
 }
 
 
 .navbar a {
     color: black;
     text-decoration: none;
+}
+
+.navbar a:hover {
+    color: rgb(72, 93, 124);
+    font-weight: bold;
+}
+
+.navbarContainer{
+    width: 100%;
 }
 
 .navbarNav{
@@ -23,4 +33,16 @@
 .dropdown{
     position: relative;
     cursor: pointer;
+}
+
+.rightLinks {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    right: 30px;
+}
+
+.rightLinks a{
+    margin-left: 10px;
 }

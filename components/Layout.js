@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 import Nav from '../components/Nav';
 
 export const siteTitle = 'My App';
-export default function Layout({ children, home }) {
+export default function Layout({ children }) {
     return (
         <>
        <Head>
