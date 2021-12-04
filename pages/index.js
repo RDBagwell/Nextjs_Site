@@ -3,6 +3,7 @@ import Image from 'next/image';
 import {MenuItems} from '../components/MenuItems';
 import DemosCard from '../components/DemosCard';
 import styles from '../styles/Home.module.css';
+import ProgressBar from '../components/ProgerssBar';
 
 export default function Home() {
   const yearsExperience = new Date().getFullYear() - 2011;
@@ -44,7 +45,7 @@ export default function Home() {
                 graphs update dynamically based on the data I feed them. I created this as a JavaScript plugin so I can
                 use it with any data and easily integrate it into any site.
             </div>
-            <div id="graphDiv"></div>
+            <ProgressBar />
         </div>
       </div>
     </div>
