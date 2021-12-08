@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import {MenuItems} from '../components/MenuItems';
 import DemosCard from '../components/DemosCard';
 import styles from '../styles/Home.module.css';
 import ProgressBar from '../components/ProgerssBar';
+import {connectToDatabase} from '../lib/mongodb';
 
-export default function Home() {
+export default function Home({pages}) {
   const yearsExperience = new Date().getFullYear() - 2011;
   return (
     <div className={styles.container}>
@@ -31,9 +31,9 @@ export default function Home() {
       <div className={styles.demos}>
         <h2 className={styles.pageTiltle}>Demos &amp; Fun Things</h2>
         <div className={styles.demoCardContainer}>
-          {MenuItems.map((cardItem, id)=>(
-            <DemosCard key={id} cardItem={cardItem} />
-          ))}  
+          {pages.map((item)=>(
+            <DemosCard key={item._id} cardItem={item} />
+          ))}
         </div>
       </div>
       <div className={styles.PLF}>
@@ -50,4 +50,19 @@ export default function Home() {
       </div>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const { db } = await connectToDatabase();
+  const pages = await db
+    .collection("pages")
+    .find({})
+    .sort({ metacritic: -1 })
+    .limit(1000)
+    .toArray();
+  return {
+    props: {
+      pages: JSON.parse(JSON.stringify(pages)),
+    },
+  };
 }

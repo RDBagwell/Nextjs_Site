@@ -1,6 +1,7 @@
 import Image from "next/dist/client/image";
 import Link from "next/dist/client/link";
 import cardStyle from './cardStyle.module.css';
+
 export default function DemosCard(cardItem){
   const {title, path, imageURL} = cardItem.cardItem;
   let image = imageURL

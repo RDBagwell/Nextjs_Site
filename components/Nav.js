@@ -3,7 +3,7 @@ import Link from 'next/dist/client/link';
 import Image from 'next/image';
 import styles from './nav.module.css';
 import Dropdown from './Dropdown';
-export default function Nav(){
+export default function Nav({pages}){
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
     return (
@@ -17,7 +17,7 @@ export default function Nav(){
                     </li>
                     <li className={styles.navItem, styles.dropdown}>
                         <a className="dropdownToggle" onClick={handleClick} >Demos and fun things {click ? <span>&#9650;</span> : <span>&#9660;</span>}</a>
-                        {click && <Dropdown closeDropdown={setClick} />}
+                        {click && <Dropdown  closeDropdown={setClick} />}
                     </li>
                 </ul>
             </div>

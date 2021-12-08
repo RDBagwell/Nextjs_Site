@@ -1,0 +1,223 @@
+ :root {
+    --circumference: 120px;
+    --radius: 60px;
+    --graphColor: rgb(1, 70, 66);
+ }
+
+.graphDiv {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.progressCircle {
+    font-size: 1.9em;
+    font-weight: bold;
+    margin: 20px;
+    position: relative;
+    padding: 0;
+    width: var(--circumference);
+    height: var(--circumference);
+    background-color: #b4b4b4;
+    border-radius: 50%;
+    line-height: var(--circumference);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .25);
+    display: inline-block;
+    margin: 24px 24px 24px 20px;
+ }
+ 
+ .progressCircle:after {
+    border: none;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    text-align: center;
+    display: block;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+    content: " ";
+ }
+ 
+ /* Text inside the control */
+ 
+ .progressCircle span {
+    position: absolute;
+    line-height: var(--circumference);
+    width: var(--circumference);
+    text-align: center;
+    display: block;
+    color: var(--graphColor);
+    z-index: 2;
+ }
+ 
+ .leftHalfClipper {
+    /* a round circle */
+    border-radius: 50%;
+    width: var(--circumference);
+    height: var(--circumference);
+    position: absolute;
+    /* needed for clipping */
+    clip: rect(0, var(--circumference), var(--circumference), var(--radius));
+    /* clips the whole left half*/
+ }
+ 
+ /* when p>50, don't clip left half*/
+ 
+ .progressCircle.over50 .leftHalfClipper {
+    clip: rect(auto, auto, auto, auto);
+ }
+ 
+ .valueBar {
+    /*This is an overlayed square, that is made round with the border radius,
+     then it is cut to display only the left half, then rotated clockwise
+     to escape the outer clipping path.*/
+    position: absolute;
+    /*needed for clipping*/
+    clip: rect(0, var(--radius), var(--circumference), 0);
+    width: var(--circumference);
+    height: var(--circumference);
+    border-radius: 50%;
+    border: 15px solid var(--graphColor);
+    /*The border is 0.35 but making it larger removes visual artifacts */
+    box-sizing: border-box;
+ }
+ 
+ /* Progress bar filling the whole right half for values above 50% */
+ 
+ .progressCircle.over50 .first50Bar {
+    /*Progress bar for the first 50%, filling the whole right half*/
+    position: absolute;
+    /*needed for clipping*/
+    clip: rect(0, var(--circumference), var(--circumference), var(--radius));
+    background-color: var(--graphColor);
+    border-radius: 50%;
+    width: var(--circumference);
+    height: var(--circumference);
+ }
+ 
+ .progressCircle:not(.over50) .first50Bar {
+    display: none;
+ }
+ 
+ .graphTitle {
+    position: relative;
+    width: 100%;
+    word-break: break-all;
+    margin: -10px auto 0 auto;
+    font-size: 1.2em;
+    font-weight: bold;
+    z-index: 1;
+ }
+ 
+ .graphcontent {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    display: inline-block;
+ }
+
+ /* Progress bar rotation position */
+.progressCircle.p0 .valueBar {display: none;}
+.progressCircle.p1 .valueBar {transform: rotate(4deg);}
+.progressCircle.p2 .valueBar {transform: rotate(7deg);}
+.progressCircle.p3 .valueBar {transform: rotate(11deg);}
+.progressCircle.p4 .valueBar {transform: rotate(14deg);}
+.progressCircle.p5 .valueBar {transform: rotate(18deg);}
+.progressCircle.p6 .valueBar {transform: rotate(22deg);}
+.progressCircle.p7 .valueBar {transform: rotate(25deg);}
+.progressCircle.p8 .valueBar {transform: rotate(29deg);}
+.progressCircle.p9 .valueBar {transform: rotate(32deg);}
+.progressCircle.p10 .valueBar {transform: rotate(36deg);}
+.progressCircle.p11 .valueBar {transform: rotate(40deg);}
+.progressCircle.p12 .valueBar {transform: rotate(43deg);}
+.progressCircle.p13 .valueBar {transform: rotate(47deg);}
+.progressCircle.p14 .valueBar {transform: rotate(50deg);}
+.progressCircle.p15 .valueBar {transform: rotate(54deg);}
+.progressCircle.p16 .valueBar {transform: rotate(58deg);}
+.progressCircle.p17 .valueBar {transform: rotate(61deg);}
+.progressCircle.p18 .valueBar {transform: rotate(65deg);}
+.progressCircle.p19 .valueBar {transform: rotate(68deg);}
+.progressCircle.p20 .valueBar {transform: rotate(72deg);}
+.progressCircle.p21 .valueBar {transform: rotate(76deg);}
+.progressCircle.p22 .valueBar {transform: rotate(79deg);}
+.progressCircle.p23 .valueBar {transform: rotate(83deg);}
+.progressCircle.p24 .valueBar {transform: rotate(86deg);}
+.progressCircle.p25 .valueBar {transform: rotate(90deg);}
+.progressCircle.p26 .valueBar {transform: rotate(94deg);}
+.progressCircle.p27 .valueBar {transform: rotate(97deg);}
+.progressCircle.p28 .valueBar {transform: rotate(101deg);}
+.progressCircle.p29 .valueBar {transform: rotate(104deg);}
+.progressCircle.p30 .valueBar {transform: rotate(108deg);}
+.progressCircle.p31 .valueBar {transform: rotate(112deg);}
+.progressCircle.p32 .valueBar {transform: rotate(115deg);}
+.progressCircle.p33 .valueBar {transform: rotate(119deg);}
+.progressCircle.p34 .valueBar {transform: rotate(122deg);}
+.progressCircle.p35 .valueBar {transform: rotate(126deg);}
+.progressCircle.p36 .valueBar {transform: rotate(130deg);}
+.progressCircle.p37 .valueBar {transform: rotate(133deg);}
+.progressCircle.p38 .valueBar {transform: rotate(137deg);}
+.progressCircle.p39 .valueBar {transform: rotate(140deg);}
+.progressCircle.p40 .valueBar {transform: rotate(144deg);}
+.progressCircle.p41 .valueBar {transform: rotate(148deg);}
+.progressCircle.p42 .valueBar {transform: rotate(151deg);}
+.progressCircle.p43 .valueBar {transform: rotate(155deg);}
+.progressCircle.p44 .valueBar {transform: rotate(158deg);}
+.progressCircle.p45 .valueBar {transform: rotate(162deg);}
+.progressCircle.p46 .valueBar {transform: rotate(166deg);}
+.progressCircle.p47 .valueBar {transform: rotate(169deg);}
+.progressCircle.p48 .valueBar {transform: rotate(173deg);}
+.progressCircle.p49 .valueBar {transform: rotate(176deg);}
+.progressCircle.p50 .valueBar {transform: rotate(180deg);}
+.progressCircle.p51 .valueBar {transform: rotate(184deg);}
+.progressCircle.p52 .valueBar {transform: rotate(187deg);}
+.progressCircle.p53 .valueBar {transform: rotate(191deg);}
+.progressCircle.p54 .valueBar {transform: rotate(194deg);}
+.progressCircle.p55 .valueBar {transform: rotate(198deg);}
+.progressCircle.p56 .valueBar {transform: rotate(202deg);}
+.progressCircle.p57 .valueBar {transform: rotate(205deg);}
+.progressCircle.p58 .valueBar {transform: rotate(209deg);}
+.progressCircle.p59 .valueBar {transform: rotate(212deg);}
+.progressCircle.p60 .valueBar {transform: rotate(216deg);}
+.progressCircle.p61 .valueBar {transform: rotate(220deg);}
+.progressCircle.p62 .valueBar {transform: rotate(223deg);}
+.progressCircle.p63 .valueBar {transform: rotate(227deg);}
+.progressCircle.p64 .valueBar {transform: rotate(230deg);}
+.progressCircle.p65 .valueBar {transform: rotate(234deg);}
+.progressCircle.p66 .valueBar {transform: rotate(238deg);}
+.progressCircle.p67 .valueBar {transform: rotate(241deg);}
+.progressCircle.p68 .valueBar {transform: rotate(245deg);}
+.progressCircle.p69 .valueBar {transform: rotate(248deg);}
+.progressCircle.p70 .valueBar {transform: rotate(252deg);}
+.progressCircle.p71 .valueBar {transform: rotate(256deg);}
+.progressCircle.p72 .valueBar {transform: rotate(259deg);}
+.progressCircle.p73 .valueBar {transform: rotate(263deg);}
+.progressCircle.p74 .valueBar {transform: rotate(266deg);}
+.progressCircle.p75 .valueBar {transform: rotate(270deg);}
+.progressCircle.p76 .valueBar {transform: rotate(274deg);}
+.progressCircle.p77 .valueBar {transform: rotate(277deg);}
+.progressCircle.p78 .valueBar {transform: rotate(281deg);}
+.progressCircle.p79 .valueBar {transform: rotate(284deg);}
+.progressCircle.p80 .valueBar {transform: rotate(288deg);}
+.progressCircle.p81 .valueBar {transform: rotate(292deg);}
+.progressCircle.p82 .valueBar {transform: rotate(295deg);}
+.progressCircle.p83 .valueBar {transform: rotate(299deg);}
+.progressCircle.p84 .valueBar {transform: rotate(302deg);}
+.progressCircle.p85 .valueBar {transform: rotate(306deg);}
+.progressCircle.p86 .valueBar {transform: rotate(310deg);}
+.progressCircle.p87 .valueBar {transform: rotate(313deg);}
+.progressCircle.p88 .valueBar {transform: rotate(317deg);}
+.progressCircle.p89 .valueBar {transform: rotate(320deg);}
+.progressCircle.p90 .valueBar {transform: rotate(324deg);}
+.progressCircle.p91 .valueBar {transform: rotate(328deg);}
+.progressCircle.p92 .valueBar {transform: rotate(331deg);}
+.progressCircle.p93 .valueBar {transform: rotate(335deg);}
+.progressCircle.p94 .valueBar {transform: rotate(338deg);}
+.progressCircle.p95 .valueBar {transform: rotate(342deg);}
+.progressCircle.p96 .valueBar {transform: rotate(346deg);}
+.progressCircle.p97 .valueBar {transform: rotate(349deg);}
+.progressCircle.p98 .valueBar {transform: rotate(353deg);}
+.progressCircle.p99 .valueBar {transform: rotate(356deg);}
+.progressCircle.p100 .valueBar {transform: rotate(360deg);}
