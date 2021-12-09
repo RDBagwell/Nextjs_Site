@@ -1,16 +1,13 @@
-import {connectToDatabase} from '../../lib/mongodb';
 import {usersRepo} from '../../helpers/users-repo';
-import fs from 'fs';
 
 export default function handler(req, res) {
     if (req.method === 'POST') {
         const {...user} = req.body
-        if (usersRepo.find(x => x.username === user.username)){
-            res.status(200).json({ error: `User with the username ${user.username} already exists` }) 
+        if (usersRepo.find(x => x.userNmae === user.userNmae)){
+            res.status(200).json(usersRepo.update(1, {"userNmae": "Robert Xombie"})) 
         } else {
             res.status(200).json(usersRepo.create(user))   
         }
-         
         
     } else {
         res.status(200).json({ name: 'Doe' })
