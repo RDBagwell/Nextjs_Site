@@ -1,5 +1,5 @@
 import fs from 'fs';
-import users from '../lib/user.json';
+import users from '../lib/page.json';
 import path from 'path';
 
 export const usersRepo = {
@@ -17,20 +17,28 @@ function create(user) {
     user.dateUpdated = new Date().toISOString();
     users.push(user);
     save();
-    return `saved ${JSON.stringify(users) }`;
+    return `saved: ${JSON.stringify(user) }`;
 }
 
 
 function update(id,params) {
-    const user = users.find( x => x.id.toString() === id.toString());
-    user.dateUpdated = new Date().toISOString();
-    Object.assign(user, params);
-    save();
+     const user = users.find( x => x.id.toString() === id.toString());
+     if(user === undefined){
+        return false
+     } else {
+        user.dateUpdated = new Date().toISOString();
+        Object.assign(user, params);
+        save();
+        return `update: ${JSON.stringify(user)}`;
+     }
+
 }
 
 function _delete(id) {
     users = users.filter(x => x.id.toString() !== id.toString());
-    save()
+
+    return `update: ${JSON.stringify(users)}`;
+    // save()
 }
 
 function save() {
