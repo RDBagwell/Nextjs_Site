@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { signOut, useSession } from "next-auth/react";
 import DemosCard from '../components/DemosCard';
 import styles from '../styles/Home.module.css';
 import ProgressBar from '../components/ProgerssBar';
@@ -7,6 +8,8 @@ import {connectToDatabase} from '../lib/mongodb';
 
 export default function Home({pages}) {
   const yearsExperience = new Date().getFullYear() - 2011;
+  const { data: session } = useSession();
+  console.log(`session ${session}`)
   return (
     <div className={styles.container}>
       <div className={styles.greeting}>
