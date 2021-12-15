@@ -1,16 +1,14 @@
-import NextAuth from "next-auth";
+import NextAuth from "next-auth"
 import CredentialProvider from "next-auth/providers/credentials";
 
 export default NextAuth({
+
   providers: [
+
     CredentialProvider({
       name: "credentials",
       credentials: {
-        username: {
-          label: "Email",
-          type: "text",
-          placeholder: "johndoe@test.com",
-        },
+        username: {label: "Email", type: "text",placeholder: "johndoe@test.com",},
         password: { label: "Password", type: "password" },
       },
       authorize: (credentials) => {
@@ -21,16 +19,19 @@ export default NextAuth({
         ) {
           return {
             id: 2,
-            name: "John",
+            name: "Tohn",
             email: "johndoe@test.com",
           };
+        } else {
+          // login failed
+          return null;
         }
 
-        // login failed
-        return null;
       },
     }),
+
   ],
+
   callbacks: {
     jwt: ({ token, user }) => {
       // first time jwt callback is run, user object is available
@@ -48,9 +49,14 @@ export default NextAuth({
       return session;
     },
   },
+
   secret: "test",
+
   jwt: {
     secret: "test",
     encryption: true,
-  }
+  },
+
+  debug: true,
+
 });

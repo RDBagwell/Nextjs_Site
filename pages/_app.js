@@ -3,9 +3,9 @@ import Layout from '../components/Layout';
 import '../styles/globals.css';
 import '../styles/progressBar.css';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return( 
-    <SessionProvider>
+    <SessionProvider session={session}>
       <Layout>
         <Component {...pageProps} />
       </Layout>

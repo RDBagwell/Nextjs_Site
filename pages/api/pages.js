@@ -25,17 +25,18 @@ export default async (req, res) => {
     if (req.method === 'POST') {
         const {...user} = req.body
         if (usersRepo.find(x => x.userNmae === user.userNmae)){
-            res.status(400).json({ error: `User with the username ${user.userNmae} already exists` }) 
+            res.status(400).json({ error: `User with the username ${user.userNmae} already exists` });
         } else {
-            res.status(200).json(usersRepo.create(user))   
+            res.status(200).json(usersRepo.create(user));
         }
         
     } else {
-        res.status(500).json({ name: 'Doe' })
-    }
+      res.status(200).json(session);
+    }   
+    
   } else {
     // Not Signed in
-    res.status(401).json({ error: 'Not Signed in' })
+    res.status(401).json({ error: '401 Unauthorized: Credentials Wrong.' });
   }
-  res.end()
+  res.end();
 }
