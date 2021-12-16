@@ -1,10 +1,9 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { signOut, useSession } from "next-auth/react";
 import DemosCard from '../components/DemosCard';
 import styles from '../styles/Home.module.css';
 import ProgressBar from '../components/ProgerssBar';
-import {connectToDatabase} from '../lib/mongodb';
+import Pages from '../lib/page.json';
 
 export default function Home({pages}) {
   const yearsExperience = new Date().getFullYear() - 2011;
@@ -33,7 +32,7 @@ export default function Home({pages}) {
         <h2 className={styles.pageTiltle}>Demos &amp; Fun Things</h2>
         <div className={styles.demoCardContainer}>
           {pages.map((item)=>(
-            <DemosCard key={item._id} cardItem={item} />
+            <DemosCard key={item.id} cardItem={item} />
           ))}
         </div>
       </div>
@@ -54,16 +53,9 @@ export default function Home({pages}) {
 }
 
 export async function getStaticProps() {
-  const { db } = await connectToDatabase();
-  const pages = await db
-    .collection("pages")
-    .find({})
-    .sort({ metacritic: -1 })
-    .limit(1000)
-    .toArray();
   return {
     props: {
-      pages: JSON.parse(JSON.stringify(pages)),
+      pages: Pages,
     },
   };
 }

@@ -1,0 +1,51 @@
+.formDiv {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formDiv h1{
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.formBody{
+    background: white;
+    padding: 20px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.formBody button{
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.formInput {
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.formInput label{
+    margin: 0 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.formInput input{
+    margin: 0 20px;
+    height: 40px;
+    width: 300px;
+}
+
+.message{
+    font-size: 20px;
+    margin-bottom: 20px;
+}

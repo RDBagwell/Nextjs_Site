@@ -1,9 +1,14 @@
 import Head from 'next/head';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
+import AdminNav from '../components/AdminNav';
+import {useRouter} from 'next/router';
 
 export const siteTitle = 'My App';
 export default function Layout({ children }) {
+  const router = useRouter();
+  const url_path = router.pathname;
+  const regex = /^\/admin/;
   return (
     <>
       <Head>
@@ -21,7 +26,7 @@ export default function Layout({ children }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Nav pages={children.props.pages} />
+      {!url_path.match(regex) ? <Nav pages={children.props.pages} /> : <AdminNav /> }
         { children }
       <Footer />
     </>
