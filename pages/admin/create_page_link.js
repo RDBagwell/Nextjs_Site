@@ -9,8 +9,8 @@ export default function CreatePage() {
         const res = await fetch('/api/pages', {
             body: JSON.stringify({
                 title: event.target.title.value,
-                path: event.target.path.value,
-                imageURL: event.target.imageURL.value
+                path: `/${event.target.path.value}`,
+                imageURL: `/images/${event.target.imageURL.value}`
             }),
             headers: {'Content-Type': 'application/json' },
             method: 'POST'
